@@ -1,2 +1,3 @@
 rootProject.name = 'Java_Fundamentals'
+include 'src'
 

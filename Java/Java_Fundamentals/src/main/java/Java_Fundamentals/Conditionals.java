@@ -1,6 +1,6 @@
-package Galvanized;
+package Java_Fundamentals;
 
-public class Conditional_Statments {
+public class Conditional {
     public static void main(String[] args) {
         //Conditional if-else, for loop, while loop:
 

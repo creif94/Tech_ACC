@@ -8,10 +8,11 @@ public class BankAccount {
     void withdraw(double withdraw_from_balance){
         balance -= withdraw_from_balance;
     }
-    void get_balanc(){
-        System.out.printf("%.2f",balance);
-        if(balance < 0 ){
+    void get_balance() {
+        System.out.printf("%.2f", balance);
+        if (balance < 0) {
             System.out.println("\nYou're Account is Negative");
         }
     }
 }
+

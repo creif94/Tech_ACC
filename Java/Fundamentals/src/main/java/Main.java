@@ -11,20 +11,15 @@ public class Main {
     // Public Main, which is the very first thing that gets ran __init__ like python
     public static void main(String[] args) {
 
-
-    }
-
-    public String testingInputOutput(String x){
-        Scanner newObj = new Scanner(System.in);
-        System.out.println("Input what you want:");
-        String input1 = newObj.nextLine();
-        System.out.println("System, out --> " + input1);
-        return input1;
-    }
-    public void Arrays(){
-
+//        // Class --- My Name --- creating a new object ---
+//        BankAccount chris = new BankAccount();
+//        // Should deposit 100 into the balance
+//        chris.deposit(0);
+//        // Should withdraw 20 from the balance, should have 80 left
+//        chris.withdraw(20);
+//        // Should print the balance and if under 0, will print Your Account is Negative
+//        chris.get_balance();
 
 
     }
-
 }

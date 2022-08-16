@@ -1,4 +1,4 @@
-public class Picture_Framed {
+public class Override_Constructors {
     public class Picture {
         private boolean framed;
         private int height;

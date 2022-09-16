@@ -28,16 +28,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 @AutoConfigureMockMvc
 public class LessonControllerTest {
-
-
     @Autowired
     private MockMvc mvc;
 
     @Autowired
     LessonRepo repo;
-
-
-
     @Test
 
     @Rollback
@@ -62,7 +57,6 @@ public class LessonControllerTest {
 
 //        MockHttpServletRequestBuilder request = post("/lessons").contentType(MediaType.APPLICATION_JSON)
 //                .content(mapper.writeValueAsString(lesson));
-
 
        this.mvc.perform(request)
                .andExpect(status().isOk())

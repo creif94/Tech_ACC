@@ -49,13 +49,17 @@ public class LessonController {
     @DeleteMapping(value = "/{id}") //https://stackabuse.com/how-to-return-http-status-codes-in-a-spring-boot-application/
     public ResponseEntity<String> delete(@PathVariable Long id){
         Optional<Lesson> lesson = this.repository.findById(id);
-        if (lesson.isPresent()) {
-            this.repository.delete(lesson.get());
-            return ResponseEntity.status(HttpStatus.ACCEPTED).body("Successfully deleted");
-        }else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Lesson not found");
-        }
+
     }
+
+
+//        if (lesson.isPresent()) {
+//            this.repository.delete(lesson.get());
+//            return ResponseEntity.status(HttpStatus.ACCEPTED).body("Successfully deleted");
+//        }else{
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Lesson not found");
+//        }
+//    }
 
     @PostMapping("")
     public Lesson create(@RequestBody Lesson lesson) {
@@ -64,4 +68,12 @@ public class LessonController {
         return this.repository.save(lesson);
     }
 
+
+// OR repository.findByID(id).orElseThrow(()-> new NoSuchMethodException(String.format("...%d", id)
+    @ExceptionHandler(NoSuchMethodException.class)
+    public ResponseEntity<String> handleElementNotFound(){
+        return new ResponseEntity<>(String.format("Record with id %d is not present",5) , HttpStatus.NOT_FOUND);
+    }
 }
+
+

@@ -47,7 +47,7 @@ public class ServiceClass {
             this.repo.delete(testing.get());
             return new ResponseEntity(HttpStatus.NO_CONTENT);
         } catch(NoSuchElementException e){
-            throw new ApiRequestException("ID Not Found");
+            throw new ApiRequestException("ID Not Found", e);
         }
     }
 

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import Exception.*;
 
 @RestController
 @RequestMapping("/users")
@@ -25,8 +26,10 @@ public class UserController {
 
     @GetMapping("/{id}")
     public User getUserById(@PathVariable Long id){
-
-        return this.userRepo.findById(id).get();
+        try{return this.userRepo.findById(id).get();}
+        catch(Exception e){
+            throw new APIRequestException(e.getMessage(), e);
+        }
 
     }
 

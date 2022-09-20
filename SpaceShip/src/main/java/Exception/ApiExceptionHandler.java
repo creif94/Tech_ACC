@@ -18,10 +18,8 @@ public class ApiExceptionHandler {
         ApiException exception = new ApiException(
                 e.getMessage(),
                 e,
-                BAD_REQUEST,
-                ZonedDateTime.now(ZoneId.of("Z")));
+                BAD_REQUEST);
         //2. return response entity
         return new ResponseEntity<>(exception, BAD_REQUEST);
-
     }
 }

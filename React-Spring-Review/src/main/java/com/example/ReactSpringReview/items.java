@@ -32,7 +32,7 @@ public class items {
         this.content = content;
     }
 
-    public boolean isCompleted() {
+    public boolean getCompleted() {
         return completed;
     }
 

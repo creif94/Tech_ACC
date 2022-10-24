@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/items")
 public class itemsController {
@@ -45,10 +46,17 @@ public class itemsController {
     }
     //Patch Specific Item
     @PatchMapping("{id}")
-    public items patchItem(@PathVariable Long id, @RequestBody items item){
-        items item = this.repo.findById(id).get();
-        
-
+    public items patchItem(@PathVariable Long id, @RequestBody Map<String, Object> item){
+        items singleItem = this.repo.findById(id).get();
+        item.forEach((k,v)->{
+            if(k.equals("content")){
+                singleItem.setContent(String.valueOf(v));
+            }
+            if (k.equals("completed")){
+                singleItem.setCompleted((Boolean)v);
+            }
+        });
+        this.repo.save(singleItem);
+        return this.repo.findById(id).get();
     }
-
 }
